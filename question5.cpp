@@ -12,14 +12,10 @@ PhoneCall::PhoneCall() {
     rate = 0;
 }
 
-PhoneCall::PhoneCall(string number, int length, float rate) {
+PhoneCall::PhoneCall(string &number, int length, float rate) {
     this->number = number;
     this->length = length;
     this->rate = rate;
-}
-
-PhoneCall::~PhoneCall() {
-    // destructor
 }
 
 string PhoneCall::getNumber() const {

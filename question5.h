@@ -13,8 +13,8 @@ using namespace std;
 class PhoneCall {
     public:
         PhoneCall();
-        PhoneCall(string number, int length, float rate);
-        ~PhoneCall();
+        PhoneCall(string &number, int length, float rate);
+        ~PhoneCall() = default;
         string getNumber() const;
         int getLength() const;
         float getRate() const;
