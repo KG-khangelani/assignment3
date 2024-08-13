@@ -8,7 +8,7 @@
 #define ASS3_QUESTION7B_H
 
 
-class PostgradStd : Student {
+class PostgradStd : public Student {
     private:
         string dissertation; // title of the Masters of doctorate
 
