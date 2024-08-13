@@ -3,6 +3,7 @@
 //
 
 #include "question7.h"
+#include "question7b.h"
 
 using namespace std;
 
@@ -92,7 +93,12 @@ istream &operator>>(istream &is, Student &student) {
 int main() {
     Student Mary("Mary Mbeli", "12345678", "Po Box 16, Pretoria, 0818", "BSc");
     Mary.display_info();
-    cout << "Fees: R" << Mary.calcFee();
+    cout << "Fees: R" << Mary.calcFee() << endl;
+    cout << "--------------------------------" << endl;
+
+    PostgradStd John("John Doe", "87654321", "Po Box 16, Pretoria, 0818", "MSc", "The effects of climate change on the economy");
+    John.display_info();
+    cout << "Fees: R" << John.calcFee() << endl;
 
     return 0;
 }

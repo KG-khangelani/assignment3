@@ -6,7 +6,7 @@
 
 using namespace std;
 
-PostgradStd::PostgradStd() {
+PostgradStd::PostgradStd(): Student() {
     dissertation = "";
 }
 
@@ -23,7 +23,10 @@ void PostgradStd::setDissertation(string &dissertationInput) {
 }
 
 void PostgradStd::display_info() const {
+    Student::display_info();
     cout << "Dissertation: " << getDissertation() << endl;
 }
 
-int PostgradStd::calcFee() {}
+int PostgradStd::calcFee() {
+    return Student::calcFee() + 12000;
+}

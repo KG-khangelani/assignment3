@@ -40,7 +40,7 @@ class Student {
 
         int calcFee();
 
-        void display_info() const;
+        virtual void display_info() const;
 
         friend bool operator==(const Student &student, const Student &student2);
 

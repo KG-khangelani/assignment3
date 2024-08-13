@@ -18,7 +18,8 @@ class PostgradStd : Student {
         string getDissertation() const;
         void setDissertation(string &dissertationInput);
 
-    void display_info() const;
+    void display_info() const override;
+    int calcFee();
 };
 
 
