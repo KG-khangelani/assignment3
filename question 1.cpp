@@ -40,10 +40,6 @@ class Student {
 
         // quiz1Input
         void setQuiz1(int quiz1Input) {
-            if (quiz1Input > 10 || quiz1Input < 0) {
-                cout << "Quiz marks should be between 0 and 10." << endl;
-                return;
-            }
             this->quiz1 = quiz1Input;
         }
 
@@ -53,10 +49,6 @@ class Student {
 
         // quiz2Input
         void setQuiz2(int quiz2Input) {
-            if (quiz2Input > 10 || quiz2Input < 0) {
-                cout << "Quiz marks should be between 0 and 10." << endl;
-                return;
-            }
             this->quiz2 = quiz2Input;
         }
 
@@ -66,9 +58,6 @@ class Student {
 
         // midtermExamInput
         void setMidtermExam(int midtermExamInput) {
-            if (midtermExamInput > 100 || midtermExamInput < 0) {
-                throw "Midterm exam marks should be between 0 and 100.";
-            }
             this->midtermExam = midtermExamInput;
         }
 
@@ -78,10 +67,6 @@ class Student {
 
         // finalExamInput
         void setFinalExam(int finalExamInput) {
-            if (finalExamInput > 100 || finalExamInput < 0) {
-                cout << "Final exam marks should be between 0 and 100." << endl;
-                return;
-            }
             this->finalExam = finalExamInput;
         }
 
@@ -91,12 +76,12 @@ class Student {
         // ------------------------------
 
         float getAverageCourseMark() const {
-            float quiz1Mark = (getQuiz1()/10.0) * 100.0;
-            float quiz2Mark = (getQuiz2()/10.0) * 100.0;
-            float midtermExamMark = (getMidtermExam());
-            float finalExamMark = (getFinalExam());
+            double quiz1Mark = (getQuiz1()/10.0) * 100.0;
+            double quiz2Mark = (getQuiz2()/10.0) * 100.0;
+            double midtermExamMark = (getMidtermExam());
+            double finalExamMark = (getFinalExam());
 
-            return (((quiz1Mark + quiz2Mark)*0.25) + (midtermExamMark*0.25) + (finalExamMark*0.5));
+            return (quiz1Mark + quiz2Mark) * static_cast<double>(0.25) + midtermExamMark * 0.25 + (finalExamMark * 0.5);
         }
 };
 
@@ -111,18 +96,34 @@ int main() {
 
     cout << "Enter student's quiz 1 mark: ";
     cin >> quiz1;
+    while (quiz1 > 10 || quiz1 < 0) {
+        cout << "Quiz marks should be between 0 and 10. Re-enter:" << endl;
+        cin >> quiz1;
+    }
     student.setQuiz1(quiz1);
 
     cout << "Enter student's quiz 2 mark: ";
     cin >> quiz2;
+    while (quiz2 > 10 || quiz2 < 0) {
+        cout << "Quiz marks should be between 0 and 10. Re-enter:" << endl;
+        cin >> quiz2;
+    }
     student.setQuiz2(quiz2);
 
     cout << "Enter student's midterm exam mark: ";
     cin >> midtermExam;
+    while (midtermExam > 100 || midtermExam < 0) {
+        cout << "Midterm exam marks should be between 0 and 100. Re-enter:" << endl;
+        cin >> midtermExam;
+    }
     student.setMidtermExam(midtermExam);
 
     cout << "Enter student's final exam mark: ";
     cin >> finalExam;
+    while (finalExam > 100 || finalExam < 0) {
+        cout << "Final exam marks should be between 0 and 100. Re-enter:" << endl;
+        cin >> finalExam;
+    }
     student.setFinalExam(finalExam);
 
     cout << "Student's name: " << student.getName() << endl;
